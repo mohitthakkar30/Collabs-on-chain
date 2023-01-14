@@ -17,7 +17,6 @@ async function airdropSol(wallet, connection) {
 		LAMPORTS_PER_SOL
 	)
 	const rx = await connection.confirmTransaction(airdropSignature)
-	console.log('sols airdropped', rx)
 }
 
 async function uploadImage(dataSrc) {
@@ -51,6 +50,7 @@ async function collabNftMetadata(name: string, description: string, ipfsImage: M
 		console.log('metadata uploaded', uri)
 		return { uri }
 	} catch (error) {
+
 		console.error('Metadata upload error ', error)
 	}
 }
@@ -67,7 +67,6 @@ async function creteNfts(metadata: any, title: string, metaplex: Metaplex, membe
 		sellerFeeBasisPoints: 0,
 	});	
 	transactions.push(tx)
-	console.log("==> ",members);
 	for(let i = 0;i<members.length;i++)
 	{
 		console.log(members[i].memberAddress);
